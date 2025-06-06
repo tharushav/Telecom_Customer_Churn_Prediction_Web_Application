@@ -1,0 +1,151 @@
+.customer-add {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.customer-add h1 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  color: var(--color-text-primary);
+  font-size: 28px;
+  padding-bottom: 0.5em;;
+}
+
+.add-form {
+  background-color: var(--color-surface);
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+  border: 1px solid var(--color-border);
+}
+
+/* Make the Customer ID field span both columns */
+.customer-id-field {
+  grid-column: 1 / -1;
+}
+
+.form-group {
+  margin-bottom: 5px;
+  /* Add min and max width to prevent overflow issues */
+  min-width: 0;
+  max-width: 100%;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #FFFFFF;
+  white-space: nowrap;
+}
+
+.form-group input, .form-group select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box;
+  background-color: var(--color-surface-light);
+  color: #FFFFFF;
+}
+
+.form-group input:focus, .form-group select:focus {
+  outline: none;
+  border-color: #4cc9f0;
+  box-shadow: 0 0 0 2px rgba(76, 201, 240, 0.2);
+}
+
+/* Add specific styling for numeric fields to ensure proper formatting */
+.form-group input[type="number"] {
+  text-align: right;
+  padding-right: 8px;
+}
+
+.form-buttons {
+  grid-column: span 2;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.save-button, .cancel-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.save-button {
+  background-color: #4cc9f0;
+  color: white;
+}
+
+.save-button:hover:not(:disabled) {
+  background-color: #3ba8d0;
+}
+
+.save-button:disabled {
+  background-color: #a0d8e9;
+  cursor: not-allowed;
+}
+
+.cancel-button {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #FFFFFF;
+}
+
+.cancel-button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.success-message {
+  padding: 15px;
+  margin-bottom: 20px;
+  background-color: rgba(46, 204, 113, 0.15);
+  color: #2ecc71;
+  border-radius: 4px;
+  text-align: center;
+  border: 1px solid rgba(46, 204, 113, 0.5);
+}
+
+.error-message {
+  padding: 15px;
+  margin-bottom: 20px;
+  background-color: rgba(231, 76, 60, 0.15);
+  color: #e74c3c;
+  border-radius: 4px;
+  text-align: center;
+  border: 1px solid rgba(231, 76, 60, 0.5);
+}
+
+/* Add styling for required field indicator */
+.required {
+  color: #e74c3c;
+  margin-left: 3px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .add-form {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .form-buttons {
+    grid-column: span 1;
+  }
+  
+  /* Keep customer ID full width even on small screens */
+  .customer-id-field {
+    grid-column: 1;
+  }
+}

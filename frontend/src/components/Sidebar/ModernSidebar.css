@@ -1,0 +1,652 @@
+/* Modern Sidebar Styling */
+:root {
+  --sidebar-width: 260px;
+  --sidebar-collapsed-width: 70px;
+  --sidebar-bg: #000000;
+  --sidebar-color: #f8fafc;
+  --sidebar-hover: rgba(255, 255, 255, 0.08);
+  --sidebar-active: rgba(59, 130, 246, 0.15);
+  --sidebar-border: rgba(255, 255, 255, 0.06);
+  --sidebar-icon: #60a5fa;
+  --sidebar-header: #f8fafc;
+  --sidebar-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --transition-speed: 0.3s;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--sidebar-width);
+  height: 100vh;
+  background: var(--sidebar-bg);
+  color: var(--sidebar-color);
+  transition: all var(--transition-speed) ease;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--sidebar-shadow);
+  overflow-x: hidden;
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+.sidebar.collapsed {
+  width: var(--sidebar-collapsed-width);
+}
+
+/* Scrollbar styling */
+.sidebar::-webkit-scrollbar {
+  width: 5px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}
+
+/* Header section */
+.sidebar-header {
+  padding: 20px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--sidebar-border);
+  min-height: 70px;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  color: var(--sidebar-icon);
+  font-size: 30px;
+}
+
+.header-text {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--sidebar-header);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Toggle button */
+.sidebar-toggle {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border: none;
+  color: var(--sidebar-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-left: 16px;
+}
+
+.sidebar-toggle:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* User profile section */
+.sidebar-user {
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.02);
+  border-bottom: 1px solid var(--sidebar-border);
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #3b82f6, #60a5fa);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  color: white;
+  font-size: 18px;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.username {
+  font-weight: 600;
+  font-size: 0.875rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.role {
+  font-size: 0.75rem;
+  opacity: 0.8;
+  text-transform: capitalize;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Navigation menu*/
+.sidebar-nav {
+  flex: 1;
+  padding: 12px 0;
+}
+
+.sidebar-nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-nav ul li {
+  margin: 2px 0;
+}
+
+.sidebar-nav ul li a {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  color: var(--sidebar-color);
+  text-decoration: none;
+  transition: all 0.2s;
+  border-radius: 6px;
+  margin: 0 8px;
+  position: relative;
+}
+
+.sidebar-nav ul li a:hover {
+  background: var(--sidebar-hover);
+}
+
+.sidebar-nav ul li a.active {
+  background: var(--sidebar-active);
+}
+
+.sidebar-nav ul li a.active .nav-icon {
+  color: #3b82f6;
+}
+
+.nav-icon {
+  font-size: 18px;
+  margin-right: 14px;
+  color: var(--sidebar-icon);
+  min-width: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-text {
+  font-size: 0.9rem;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Footer section */
+.sidebar-footer {
+  padding: 16px;
+  border-top: 1px solid var(--sidebar-border);
+}
+
+.logout-button {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 12px;
+  border-radius: 6px;
+  background: rgba(239, 68, 68, 0.1);
+  color: #fca5a5;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.logout-button:hover {
+  background: rgba(239, 68, 68, 0.2);
+}
+
+.logout-button .nav-icon {
+  color: #fca5a5;
+}
+
+/* Modal styles */
+.confirmation-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1200;
+  backdrop-filter: blur(4px);
+}
+
+.confirmation-modal {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.confirmation-modal h3 {
+  margin-top: 0;
+  color: #1e293b;
+}
+
+.confirmation-modal p {
+  color: #64748b;
+}
+
+.confirmation-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.cancel-button,
+.confirm-button {
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  min-width: 100px;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.cancel-button {
+  background: #f1f5f9;
+  color: #334155;
+  border: 1px solid #e2e8f0;
+}
+
+.cancel-button:hover {
+  background: #e2e8f0;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.confirm-button {
+  background: #ef4444;
+  color: white;
+  border: none;
+}
+
+.confirm-button:hover {
+  background: #dc2626;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Logout confirmation modal styles */
+.logout-confirmation-overlay {
+  display: none;
+}
+
+/* Use the delete confirmation modal styles for logout popup */
+.delete-confirmation-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  backdrop-filter: blur(4px);
+  animation: fadeIn 0.2s ease-out;
+}
+
+.delete-confirmation-modal {
+  background-color: var(--color-surface);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  max-width: 450px;
+  width: 90%;
+  text-align: center;
+  animation: slideUp 0.3s ease-out;
+  border: 1px solid var(--color-border);
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0;
+    transform: translateY(20px); 
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0); 
+  }
+}
+
+.delete-icon-container {
+  margin-bottom: 15px;
+}
+
+.delete-warning-icon {
+  font-size: 40px;
+  color: #e74c3c;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.delete-confirmation-modal h3 {
+  margin: 0 0 15px 0;
+  color: #FFFFFF;
+  font-size: 22px;
+}
+
+.delete-confirmation-modal p {
+  margin: 0 0 10px 0;
+  color: #FFFFFF;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.delete-confirmation-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.cancel-delete-button {
+  padding: 12px 25px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.cancel-delete-button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.confirm-delete-button {
+  padding: 12px 25px;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 10px rgba(231, 76, 60, 0.3);
+}
+
+.confirm-delete-button:hover {
+  background-color: #c0392b;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(231, 76, 60, 0.4);
+}
+
+/* Responsive styles for the modal */
+@media (max-width: 768px) {
+  .delete-confirmation-modal {
+    width: 95%;
+    padding: 25px 20px;
+  }
+  
+  .delete-confirmation-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .cancel-delete-button,
+  .confirm-delete-button {
+    width: 100%;
+  }
+}
+
+/* Collapsed state adjustments */
+.sidebar.collapsed .sidebar-header {
+  justify-content: center;
+  padding: 20px 0;
+}
+
+.sidebar.collapsed .header-logo,
+.sidebar.collapsed .header-text {
+  display: none;
+}
+
+.sidebar.collapsed .sidebar-toggle {
+  margin: 0;
+}
+
+.sidebar.collapsed .sidebar-user {
+  padding: 16px 0;
+  justify-content: center;
+}
+
+.sidebar.collapsed .nav-text,
+.sidebar.collapsed .header-text,
+.sidebar.collapsed .user-info,
+.sidebar.collapsed .logout-button .nav-text {
+  display: none;
+}
+
+.sidebar.collapsed .sidebar-nav ul li a {
+  padding: 14px 0;
+  justify-content: center;
+}
+
+.sidebar.collapsed .nav-icon {
+  margin-right: 0;
+  font-size: 20px;
+}
+
+.sidebar.collapsed .logout-button {
+  padding: 12px 0;
+  justify-content: center;
+}
+
+/* Mobile responsive design */
+@media (max-width: 991px) {
+  .sidebar {
+    --sidebar-width: 240px;
+  }
+  
+  /* Ensure the main content doesn't overlap with sidebar */
+  .main-content {
+    margin-left: var(--sidebar-width);
+  }
+  
+  .main-content.sidebar-collapsed {
+    margin-left: var(--sidebar-collapsed-width);
+  }
+}
+
+@media (max-width: 768px) {
+  /* Keep sidebar on the left side even on mobile */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: var(--sidebar-collapsed-width);
+    flex-direction: column;
+    overflow-y: auto;
+    z-index: 1000;
+    transform: translateX(0);
+    display: block !important;
+    font-size: inherit;
+  }
+  
+  /* Always collapsed on mobile unless expanded */
+  .sidebar.collapsed {
+    width: var(--sidebar-collapsed-width);
+  }
+  
+  /* Show all navigation items in collapsed state */
+  .sidebar .sidebar-nav ul {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    overflow-y: visible;
+    height: auto;
+  }
+  
+  /* When expanded, show entire sidebar */
+  .sidebar.expanded {
+    width: 240px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    background: var(--sidebar-bg);
+    position: fixed;
+    transition: width 0.3s ease;
+  }
+  
+  /* Ensure content doesn't overlap with sidebar */
+  .main-content {
+    margin-left: var(--sidebar-collapsed-width);
+    width: calc(100% - var(--sidebar-collapsed-width));
+  }
+  
+  /* Adjust main content when sidebar is expanded */
+  .main-content.sidebar-expanded {
+    margin-left: 240px;
+    width: calc(100% - 240px);
+  }
+  
+  /* Ensure nav menu is properly displayed */
+  .sidebar .sidebar-nav {
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    height: auto;
+    min-height: 300px;
+  }
+  
+  /* Ensure text doesn't overflow */
+  .nav-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 160px; /* Limit max width of text */
+  }
+  
+  /* Ensure the footer is always visible */
+  .sidebar .sidebar-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: var(--sidebar-collapsed-width);
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    z-index: 1001;
+    background-color: #000000;
+    border-top: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Hide elements in mobile collapsed state */
+  .sidebar.collapsed .sidebar-header,
+  .sidebar.collapsed .sidebar-user,
+  .sidebar.collapsed .sidebar-footer {
+    display: none;
+  }
+  /* Mobile navigation bar */
+  .sidebar.collapsed .sidebar-nav {
+    width: 100%;
+    padding: 0;
+    margin-bottom: 0;
+  }
+  
+  .sidebar.collapsed .sidebar-nav ul {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+  }
+  
+  .sidebar.collapsed .sidebar-nav ul li {
+    flex: 1;
+    margin: 0;
+    max-width: 80px;
+  }
+  
+  .sidebar.collapsed .sidebar-nav ul li a {
+    flex-direction: column;
+    padding: 8px 0;
+    height: 60px;
+    margin: 0;
+    border-radius: 0;
+    gap: 4px;
+  }
+  
+  .sidebar.collapsed .nav-icon {
+    margin: 0;
+    font-size: 18px;
+  }
+  
+  .sidebar.collapsed .nav-text {
+    display: block;
+    font-size: 10px;
+  }
+  
+  .sidebar .nav-text {
+    display: none !important;
+  }
+  .sidebar {
+    display: block !important;
+    font-size: inherit;
+  }
+}
